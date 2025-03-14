@@ -1,6 +1,6 @@
 services:
   frontend:
-    container_name: kupi-fronten
+    container_name: kupi-frontend
     image: okokanya/kupi-frontend-optima:1.0.0-alpine
     restart: always
     ports:

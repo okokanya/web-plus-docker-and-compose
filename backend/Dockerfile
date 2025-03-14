@@ -1,21 +1,15 @@
-# Используем официальный образ Node.js
-FROM node:18-alpine
-
-# Устанавливаем рабочую директорию
+FROM node:20-alpine as builder
 WORKDIR /app
-
-# Копируем package.json и устанавливаем зависимости
 COPY package*.json ./
-RUN npm install
-
-# Копируем весь код
-COPY . .
-
-# Собираем приложение (если используется TypeScript)
+RUN npm ci
+COPY . ./
 RUN npm run build
 
-# Открываем порт (например, 3000)
-EXPOSE 3000
-
-# Запускаем сервер
-CMD ["npm", "run", "start:prod"]
+FROM node:20-alpine as production
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev --no-audit --no-fund \
+  && npm i -g pm2
+COPY --from=builder /app/dist ./dist
+COPY ./ecosystem.config.js ./
+ENTRYPOINT [ "pm2-runtime", "start", "ecosystem.config.js" ]

@@ -1,10 +1,10 @@
 services:
   frontend:
     container_name: kupi-frontend
-    # build:
-    #   context: frontend
-    #   dockerfile: Dockerfile
-    image: okokanya/kupi-frontend-optima:1.0.0-alpine
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    image: okokanya/kupi-frontend:1.0.0-alpine
     restart: always
     ports:
       - 8080:80
@@ -13,10 +13,10 @@ services:
 
   backend:
     container_name: kupi-backend
-    # build:
-    #   context: backend
-    #   dockerfile: Dockerfile
-    image: okokanya/kupi-backend-optima:1.0.0-alpine
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    image: okokanya/kupi-backend:1.0.0-alpine
     restart: always
     env_file: .env
     ports:

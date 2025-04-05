@@ -7,4 +7,4 @@ backend
 https://api.dockerok.nomorepartiesco.ru/
 
 api
-89.169.172.231
+51.250.100.202

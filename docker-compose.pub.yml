@@ -1,7 +1,8 @@
 services:
   frontend:
     container_name: kupi-frontend
-    image: okokanya/kupi-frontend-optima:1.0.0-alpine
+    image: okokanya/kupi-frontend:1.0.0-alpine
+    platform: linux/amd64 # Явно указываем архитектуру
     restart: always
     ports:
       - 8080:80
@@ -10,7 +11,8 @@ services:
 
   backend:
     container_name: kupi-backend
-    image: okokanya/kupi-backend-optima:1.0.0-alpine
+    image: okokanya/kupi-backend:1.0.0-alpine
+    platform: linux/amd64 # Явно указываем архитектуру
     restart: always
     env_file: .env
     ports:

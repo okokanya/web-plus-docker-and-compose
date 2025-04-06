@@ -1,10 +1,12 @@
 # Докеризация приложения
 
 frontend
-https://dockerok.nomorepartiesco.ru/
+http://dockerok.nomorepartiesco.ru/
+
 
 backend
 https://api.dockerok.nomorepartiesco.ru/
 
+
 api
-84.252.140.51
+89.169.168.212

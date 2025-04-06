@@ -1,6 +1,6 @@
 // export const URL = "http://167.235.140.175:3001";
 
-export const URL = "api.dockerok.nomorepartiesco.ru";
+export const URL = "https://api.dockerok.nomorepartiesco.ru";
 
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
